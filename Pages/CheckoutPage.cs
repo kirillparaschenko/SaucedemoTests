@@ -53,5 +53,11 @@ namespace Tests.Pages
             TryToContinue(firstame, lastname, postalCode);
             return new CheckoutStepTwoPage(ChromeDriver);
         }
+
+        public CartPage ClickCancelButton()
+        {
+            ChromeDriver.FindElement(CancelButtonLocator).Click();
+            return new CartPage(ChromeDriver);
+        }
     }
 }
