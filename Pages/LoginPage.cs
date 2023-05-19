@@ -23,11 +23,6 @@ namespace Tests.Pages
             ChromeDriver.FindElement(UserNameInputLocator).SendKeys(name);
         }
 
-        public string GetErrorMessage()
-        {
-            return ChromeDriver.FindElement(ErrorElement).Text;
-        }
-
         void SetPasswrod(string password)
         {
             ChromeDriver.FindElement(PassrowdInputLocator).SendKeys(password);
@@ -36,6 +31,11 @@ namespace Tests.Pages
         void ClickLoginButton()
         {
             ChromeDriver.FindElement(LoginButtonLocator).Click();
+        }
+
+        public string GetErrorMessage()
+        {
+            return ChromeDriver.FindElement(ErrorElement).Text;
         }
 
         public void TryToLogin(User user)
