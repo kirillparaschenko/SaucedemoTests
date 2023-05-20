@@ -6,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Tests.Models;
+using Tests.Tests;
 
 namespace Tests.Pages
 {
@@ -21,6 +22,8 @@ namespace Tests.Pages
         public LoginPage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
+
+        public LoginPage(WebDriver driver) : base(driver, false) { } 
 
         void SetUserName(string name)
         {

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using Tests.Models;
+using Tests.Tests;
 
 namespace Tests.Pages
 {
@@ -40,7 +41,7 @@ namespace Tests.Pages
 
         void SetPostalCode (string postalCode)
         {
-            Driver.FindElement(LastNameInputLocator).SendKeys(postalCode);
+            Driver.FindElement(PostalCodeInputLocator).SendKeys(postalCode);
         }
 
         void ClickContinueButton()

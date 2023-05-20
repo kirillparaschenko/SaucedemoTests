@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Tests.Tests;
 
 namespace Tests.Pages
 {
@@ -28,7 +29,7 @@ namespace Tests.Pages
             return new InventoryPage(Driver);
         }
 
-        public CheckoutCompletePage ClickContinueButton()
+        public CheckoutCompletePage ClickFinishButton()
         {
             Driver.FindElement(FinishButtonLocator).Click();
             return new CheckoutCompletePage(Driver);
