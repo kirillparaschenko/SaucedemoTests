@@ -1,5 +1,6 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using Tests.Models;
 using Tests.Pages;
 
 namespace Tests.Tests
@@ -12,6 +13,15 @@ namespace Tests.Tests
         [SetUp]
         public void Setup()
         {
+            UserBuilder userBuilder = new UserBuilder();
+            User user = userBuilder
+                .SetUserName ("username")
+                .SetPassword ("password")
+                .SetUserFirstName ("username")
+                .SetUserLastName ("username")
+                .SetUserPostalCode ("password")
+                .Build ();
+
             ChromeDriver = new ChromeDriver();
             ChromeDriver.Manage().Window.Maximize();
             ChromeDriver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);

@@ -2,21 +2,29 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using Tests.Models;
 
 namespace Tests.Pages
 {
     public class CheckoutStepOnePage : BasePage
     {
+        private static string END_POINT = "checkout-step-one.html";
+
         By ContinueButtonLocator = By.Id("continue");
         By CancelButtonLocator = By.Id("cancel");
         By FirstNameInputLocator = By.Name("firstName");
         By LastNameInputLocator = By.Name("lastName");
         By PostalCodeInputLocator = By.Name("postalCode");
 
-        public CheckoutStepOnePage(WebDriver driver) : base(driver)
+        public CheckoutStepOnePage(WebDriver driver) : base(driver, false)
+        {
+        }
+
+        public CheckoutStepOnePage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 
@@ -40,17 +48,17 @@ namespace Tests.Pages
             Driver.FindElement(ContinueButtonLocator).Click();
         }
 
-        public void TryToContinue(string firstame, string lastname, string postalCode)
+        public void TryToContinue(User user)
         {
-            SetFirstName(firstame);
-            SetLastName(lastname);
-            SetPostalCode(postalCode);
+            SetFirstName(user.UserFirstName);
+            SetLastName(user.UserLastName);
+            SetPostalCode(user.UserPostalCode);
             ClickContinueButton();
         }
 
-        public CheckoutStepTwoPage ContinueCheckout(string firstame, string lastname, string postalCode)
+        public CheckoutStepTwoPage ContinueCheckout(User user)
         {
-            TryToContinue(firstame, lastname, postalCode);
+            TryToContinue(user);
             return new CheckoutStepTwoPage(Driver);
         }
 
@@ -58,6 +66,23 @@ namespace Tests.Pages
         {
             Driver.FindElement(CancelButtonLocator).Click();
             return new CartPage(Driver);
+        }
+
+        public override void OpenPage()
+        {
+            Driver.Navigate().GoToUrl(BaseTest.BaseUrl + END_POINT);
+        }
+
+        public override bool IsPageOpened()
+        {
+            try
+            {
+                return Driver.FindElement(ContinueButtonLocator).Displayed;
+            }
+            catch (Exception e)
+            {
+                return false;
+            }
         }
     }
 }

@@ -9,14 +9,10 @@ namespace Tests.Pages
 {
     public abstract class BasePage
     {
+        protected static int WAIT_FOR_PAGE_LOADING_TIME = 60;
         protected WebDriver Driver { get; set; }
 
-        public BasePage(WebDriver driver)
-        {
-            Driver = driver;
-        }
-
-        public BasePage(IWebDriver? driver, bool openPageByUrl)
+        public BasePage(WebDriver driver, bool openPageByUrl)
         {
             Driver = driver;
 
@@ -25,6 +21,8 @@ namespace Tests.Pages
                 OpenPage();
             }
         }
+
+        public BasePage() { }
 
         public abstract void OpenPage();
         public abstract bool IsPageOpened();
