@@ -21,18 +21,18 @@ namespace Tests.Pages
 
         public bool CheckCartIconPresented()
         {
-            return ChromeDriver.FindElement(CartIconLocator).Displayed;
+            return Driver.FindElement(CartIconLocator).Displayed;
         }
 
         public CartPage ClickCartIcon()
         {
-            ChromeDriver.FindElement(CartIconLocator).Click();
-            return new CartPage(ChromeDriver);
+            Driver.FindElement(CartIconLocator).Click();
+            return new CartPage(Driver);
         }
 
         public void ClickAddToCartJacketButtonLocator()
         {
-            ChromeDriver.FindElement(AddToCartJacketButtonLocator).Click();
+            Driver.FindElement(AddToCartJacketButtonLocator).Click();
         }
 
         /// <summary>
@@ -41,8 +41,15 @@ namespace Tests.Pages
         /// <param name="option"></param>
         public void SelectSortOption(string option)
         {
-            new SelectElement(ChromeDriver.FindElement(ProductSortDropDownLocator))
+            new SelectElement(Driver.FindElement(ProductSortDropDownLocator))
                 .SelectByText(option);
+        }
+
+        public CartPage AddCartJacketToCart()
+        {
+            ClickAddToCartJacketButtonLocator();
+            ClickCartIcon();
+            return new CartPage(Driver);
         }
     }
 }

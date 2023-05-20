@@ -20,22 +20,22 @@ namespace Tests.Pages
 
         void SetUserName(string name)
         {
-            ChromeDriver.FindElement(UserNameInputLocator).SendKeys(name);
+            Driver.FindElement(UserNameInputLocator).SendKeys(name);
         }
 
         void SetPasswrod(string password)
         {
-            ChromeDriver.FindElement(PassrowdInputLocator).SendKeys(password);
+            Driver.FindElement(PassrowdInputLocator).SendKeys(password);
         }
 
         void ClickLoginButton()
         {
-            ChromeDriver.FindElement(LoginButtonLocator).Click();
+            Driver.FindElement(LoginButtonLocator).Click();
         }
 
         public string GetErrorMessage()
         {
-            return ChromeDriver.FindElement(ErrorElement).Text;
+            return Driver.FindElement(ErrorElement).Text;
         }
 
         public void TryToLogin(User user)
@@ -48,7 +48,7 @@ namespace Tests.Pages
         public InventoryPage Login(User user)
         {
             TryToLogin(user);
-            return new InventoryPage(ChromeDriver);
+            return new InventoryPage(Driver);
         }
     }
 }

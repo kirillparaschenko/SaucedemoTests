@@ -18,8 +18,8 @@ namespace Tests.Pages
 
         public InventoryPage ClickBackHomeButton()
         {
-            ChromeDriver.FindElement(BackHomeButtonLocator).Click();
-            return new InventoryPage(ChromeDriver);
+            Driver.FindElement(BackHomeButtonLocator).Click();
+            return new InventoryPage(Driver);
         }
 
     }

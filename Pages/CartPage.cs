@@ -20,19 +20,19 @@ namespace Tests.Pages
 
         public bool CheckCheckoutButtonPresented()
         {
-            return ChromeDriver.FindElement(CheckoutButtonLocator).Displayed;
+            return Driver.FindElement(CheckoutButtonLocator).Displayed;
         }
 
         public InventoryPage ClickContinueShopingButton()
         {
-            ChromeDriver.FindElement(ContinueShopingButtonLocator).Click();
-            return new InventoryPage(ChromeDriver);
+            Driver.FindElement(ContinueShopingButtonLocator).Click();
+            return new InventoryPage(Driver);
         }
 
         public CheckoutStepOnePage ClickCheckoutButton()
         {
-            ChromeDriver.FindElement(CheckoutButtonLocator).Click();
-            return new CheckoutStepOnePage(ChromeDriver);
+            Driver.FindElement(CheckoutButtonLocator).Click();
+            return new CheckoutStepOnePage(Driver);
         }
     }
 }

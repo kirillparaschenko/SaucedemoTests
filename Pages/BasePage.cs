@@ -9,11 +9,24 @@ namespace Tests.Pages
 {
     public abstract class BasePage
     {
-        protected WebDriver ChromeDriver { get; set; }
+        protected WebDriver Driver { get; set; }
 
         public BasePage(WebDriver driver)
         {
-            ChromeDriver = driver;
+            Driver = driver;
         }
+
+        public BasePage(IWebDriver? driver, bool openPageByUrl)
+        {
+            Driver = driver;
+
+            if (openPageByUrl)
+            {
+                OpenPage();
+            }
+        }
+
+        public abstract void OpenPage();
+        public abstract bool IsPageOpened();
     }
 }
