@@ -19,11 +19,11 @@ namespace Tests.Pages
         By LoginButtonLocator = By.Name("login-button");
         By ErrorElement = By.XPath("//*[@data-test='error']");
 
-        public LoginPage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public LoginPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 
-        public LoginPage(WebDriver driver) : base(driver, false) { } 
+        public LoginPage(IWebDriver? driver) : base(driver, false) { } 
 
         void SetUserName(string name)
         {

@@ -21,11 +21,11 @@ namespace Tests.Pages
         By LastNameInputLocator = By.Name("lastName");
         By PostalCodeInputLocator = By.Name("postalCode");
 
-        public CheckoutStepOnePage(WebDriver driver) : base(driver, false)
+        public CheckoutStepOnePage(IWebDriver? driver) : base(driver, false)
         {
         }
 
-        public CheckoutStepOnePage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public CheckoutStepOnePage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 

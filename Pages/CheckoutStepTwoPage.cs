@@ -16,10 +16,10 @@ namespace Tests.Pages
         By FinishButtonLocator = By.Id("finish");
         By CancelButtonLocator = By.Id("cancel");
 
-        public CheckoutStepTwoPage(WebDriver driver) : base(driver, false)
+        public CheckoutStepTwoPage(IWebDriver? driver) : base(driver, false)
         {
         }
-        public CheckoutStepTwoPage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public CheckoutStepTwoPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 

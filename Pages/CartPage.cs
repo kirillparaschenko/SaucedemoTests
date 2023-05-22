@@ -16,11 +16,11 @@ namespace Tests.Pages
         By ContinueShopingButtonLocator = By.Id("continue-shopping");
         By CheckoutButtonLocator = By.Id("checkout");
 
-        public CartPage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public CartPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 
-        public CartPage(WebDriver driver) : base(driver, false)
+        public CartPage(IWebDriver? driver) : base(driver, false)
         {
         }
 

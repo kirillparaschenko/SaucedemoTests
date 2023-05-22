@@ -18,11 +18,11 @@ namespace Tests.Pages
         By AddToCartJacketButtonLocator = By.Id("add-to-cart-sauce-labs-fleece-jacket");
         By ProductSortDropDownLocator = By.ClassName("product_sort_container");
 
-        public InventoryPage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public InventoryPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 
-        public InventoryPage(WebDriver driver) : base(driver, false) { }
+        public InventoryPage(IWebDriver? driver) : base(driver, false) { }
 
         public bool CheckCartIconPresented()
         {

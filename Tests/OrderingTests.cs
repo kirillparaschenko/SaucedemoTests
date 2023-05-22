@@ -28,7 +28,7 @@ namespace Tests.Tests
                 .ContinueCheckout(user)
                 .ClickFinishButton();
             Assert.IsTrue(new CheckoutCompletePage(ChromeDriver).IsPageOpened());
-                
+   
         }
     }
 }

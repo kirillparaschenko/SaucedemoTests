@@ -16,11 +16,11 @@ namespace Tests.Pages
         By BackHomeButtonLocator = By.Name("back-to-products");
         By CompleteTextLocator = By.ClassName("checkout_complete_container");
 
-        public CheckoutCompletePage(WebDriver driver) : base(driver, false)
+        public CheckoutCompletePage(IWebDriver? driver) : base(driver, false)
         {
         }
 
-        public CheckoutCompletePage(WebDriver driver, bool openPageByUrl) : base(driver, openPageByUrl)
+        public CheckoutCompletePage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
         }
 
@@ -28,6 +28,11 @@ namespace Tests.Pages
         {
             Driver.FindElement(BackHomeButtonLocator).Click();
             return new InventoryPage(Driver);
+        }
+
+        public string GetCompleteMessageText()
+        {
+            return Driver.FindElement(CompleteTextLocator).Text;
         }
 
         public override void OpenPage()
