@@ -14,8 +14,7 @@ namespace Tests.Tests
 
         public void OrderingJacket()
         {
-            UserBuilder userBuilder = new UserBuilder();
-            User user = userBuilder
+            User user  = new UserBuilder()             
                 .SetUserName("standard_user")
                 .SetPassword("secret_sauce")
                 .SetUserFirstName("username")
