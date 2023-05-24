@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NUnit.Allure.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,8 +11,16 @@ namespace Tests.Tests
 {
     public class OrderingTests : BaseTest
     {
-        [Test, Category("Smoke")]
-
+        [Test(Description = "Successful ordering a jacket")]
+        [AllureSeverity(Allure.Commons.SeverityLevel.critical)]
+        [AllureOwner("standard_user")]
+        [AllureSuite("PassedSuite")]
+        [AllureSubSuite("GUI")]
+        [AllureIssue("TMS-39")]
+        [AllureTms("SL-3")]
+        [AllureTag("Smoke")]
+        [AllureLink("https://app.qase.io/")]
+        [Description("Placing an order for a jacket")]
         public void OrderingJacket()
         {
             User user  = new UserBuilder()             
