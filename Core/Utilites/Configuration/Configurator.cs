@@ -1,6 +1,6 @@
 using System.Reflection;
 using Core.Models;
-using Core.Models.Enums;
+using Core.Models;
 using Microsoft.Extensions.Configuration;
 
 namespace Core.Utilites.Configuration
@@ -45,36 +45,35 @@ namespace Core.Utilites.Configuration
             }
         }
 
-        public static List<User?> Users
-        {
-            get
-            {
-                List<User?> users = new List<User?>();
-                var child = Configuration.GetSection("Users");
-                foreach (var section in child.GetChildren())
-                {
-                    var user = new User
-                    {
-                        Password = section["Password"],
-                        Username = section["Username"]
-                    };
-                    user.UserType = section["UserType"].ToLower() switch
-                    {
-                        "admin" => UserType.Admin,
-                        "user" => UserType.User,
-                        _ => user.UserType
-                    };
+        //public static List<User?> Users
+        //{
+        //    get
+        //    {
+        //        List<User?> users = new List<User?>();
+        //        var child = Configuration.GetSection("Users");
+        //        foreach (var section in child.GetChildren())
+        //        {
+        //            var user = new User
+        //            {
+        //                Password = section["Password"],
+        //                Username = section["Username"]
+        //            };
+        //            user.UserType = section["UserType"].ToLower() switch
+        //            {
+        //                "admin" => UserType.Admin,
+        //                "user" => UserType.User,
+        //                _ => user.UserType
+        //            };
 
-                    users.Add(user);
-                }
+        //            users.Add(user);
+        //        }
 
-                return users;
-            }
-        }
+        //        return users;
+        //    }
+        //}
 
-        public static User? Admin => Users.Find(x => x?.UserType == UserType.Admin);
         public static string BrowserType => Configuration[nameof(BrowserType)];
 
-        public static User? UserByUsername(string username) => Users.Find(x => x?.Username == username);
+        //public static User? UserByUsername(string username) => Users.Find(x => x?.Username == username);
     }
 }
