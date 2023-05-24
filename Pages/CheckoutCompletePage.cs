@@ -18,10 +18,12 @@ namespace Tests.Pages
 
         public CheckoutCompletePage(IWebDriver? driver) : base(driver, false)
         {
+            _logger.Info("CheckoutComplete Page opened");
         }
 
         public CheckoutCompletePage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
+            _logger.Info("CheckoutComplete Page opened");
         }
 
         public InventoryPage ClickBackHomeButton()

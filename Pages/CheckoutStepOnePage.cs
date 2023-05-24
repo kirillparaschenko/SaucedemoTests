@@ -23,10 +23,12 @@ namespace Tests.Pages
 
         public CheckoutStepOnePage(IWebDriver? driver) : base(driver, false)
         {
+            _logger.Info("CheckoutStepOne Page opened");
         }
 
         public CheckoutStepOnePage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
+            _logger.Info("CheckoutStepOne Page opened");
         }
 
         void SetFirstName(string firstame)

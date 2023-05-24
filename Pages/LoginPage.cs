@@ -21,9 +21,13 @@ namespace Tests.Pages
 
         public LoginPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
+            _logger.Info("Login Page opened");
         }
 
-        public LoginPage(IWebDriver? driver) : base(driver, false) { } 
+        public LoginPage(IWebDriver? driver) : base(driver, false) 
+        {
+            _logger.Info("Login Page opened");
+        } 
 
         void SetUserName(string name)
         {

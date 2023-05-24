@@ -18,9 +18,11 @@ namespace Tests.Pages
 
         public CheckoutStepTwoPage(IWebDriver? driver) : base(driver, false)
         {
+            _logger.Info("CheckoutStepTwo Page opened");
         }
         public CheckoutStepTwoPage(IWebDriver? driver, bool openPageByUrl) : base(driver, openPageByUrl)
         {
+            _logger.Info("CheckoutStepTwo Page opened");
         }
 
         public InventoryPage ClickCancelButton()

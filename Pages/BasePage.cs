@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NLog;
+using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Tests.Pages
 {
     public abstract class BasePage
     {
+        public static readonly Logger _logger = LogManager.GetCurrentClassLogger();
+
         protected static int WAIT_FOR_PAGE_LOADING_TIME = 60;
         protected IWebDriver? Driver { get; set; }
 
